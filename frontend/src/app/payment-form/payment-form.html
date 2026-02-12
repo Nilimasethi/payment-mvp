@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Payment Form</h2>
+
+  <div *ngIf="successMsg" class="msg success">{{ successMsg }}</div>
+  <div *ngIf="errorMsg" class="msg error">{{ errorMsg }}</div>
+
+  <form [formGroup]="paymentForm" (ngSubmit)="submit()">
+
+    <label>Full Name</label>
+    <input type="text" formControlName="name" placeholder="John Doe" />
+    <small class="err" *ngIf="f.name.touched && f.name.invalid">
+      Name must be 3–50 chars, alphabets and spaces only
+    </small>
+    <small class="err" *ngIf="fieldErrors['name']">{{ fieldErrors['name'] }}</small>
+
+    <label>Email</label>
+    <input type="email" formControlName="email" placeholder="john@example.com" />
+    <small class="err" *ngIf="f.email.touched && f.email.invalid">Enter a valid email</small>
+    <small class="err" *ngIf="fieldErrors['email']">{{ fieldErrors['email'] }}</small>
+
+    <label>Contact Number</label>
+    <input type="text" formControlName="contact" placeholder="9876543210" />
+    <small class="err" *ngIf="f.contact.touched && f.contact.invalid">Contact must be exactly 10 digits</small>
+    <small class="err" *ngIf="fieldErrors['contact']">{{ fieldErrors['contact'] }}</small>
+
+    <label>Payment Amount</label>
+    <input type="text" formControlName="amount" placeholder="100.00" />
+    <small class="err" *ngIf="f.amount.touched && f.amount.invalid">Amount must be like 100.00</small>
+    <small class="err" *ngIf="fieldErrors['amount']">{{ fieldErrors['amount'] }}</small>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Processing...' : 'Pay' }}
+    </button>
+  </form>
+</div>
