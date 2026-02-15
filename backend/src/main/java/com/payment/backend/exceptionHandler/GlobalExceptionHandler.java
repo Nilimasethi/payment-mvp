@@ -1,4 +1,4 @@
-package com.payment.backend.exception;
+package com.payment.backend.exceptionHandler;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

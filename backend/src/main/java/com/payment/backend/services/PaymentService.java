@@ -1,4 +1,4 @@
-package com.payment.backend.service;
+package com.payment.backend.services;
 
 import com.payment.backend.dto.PaymentRequest;
 import com.payment.backend.entity.Payment;
